@@ -12,14 +12,9 @@
         android:id="@+id/editText"
         android:layout_weight="0.87" />
 
-    <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="right">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView" />
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="right"></TableRow>
-    </TableLayout>
 </LinearLayout>
