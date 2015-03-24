@@ -4,6 +4,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Switch;
+import android.widget.ToggleButton;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -14,7 +17,11 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.font_page);
+
+        Switch mailSwitch = (Switch)findViewById(R.id.email_switch);
+        mailSwitch.setTextOff("Sent Message");
+        mailSwitch.setTextOn("Compose Message");
     }
 
 
@@ -38,5 +45,17 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void startEmail(View view)
+    {
+        boolean on = ((ToggleButton) view).isChecked();
+        if(on)
+        {
+
+        }else{
+
+        }
+
     }
 }

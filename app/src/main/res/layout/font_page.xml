@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_column="2"
+    android:layout_row="3">
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="141dp"
-        android:background="#ff31a9ff"
-        android:id="@+id/top_frontpage"
-        android:weightSum="1">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="LinkIt"
+        android:id="@+id/linkit_logo"
+        android:layout_column="2"
+        android:layout_row="1"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="LinkIt"
-            android:id="@+id/application_logo"
-            android:layout_gravity="center"
-            android:layout_weight="0.58" />
-    </TableRow>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go"
+        android:id="@+id/email_button"
+        android:layout_column="3"
+        android:layout_row="3"
+        android:onClick="startEmail"/>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#ff28ffe3">
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/toggleButton"
+        android:layout_column="2"
+        android:checked="false"
+        android:layout_row="1" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView" />
-    </TableRow>
-</LinearLayout>
+</GridLayout>
