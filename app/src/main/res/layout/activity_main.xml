@@ -12,9 +12,4 @@
         android:id="@+id/editText"
         android:layout_weight="0.87" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView" />
-
 </LinearLayout>
