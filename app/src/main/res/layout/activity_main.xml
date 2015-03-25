@@ -9,7 +9,8 @@
     <EditText
         android:layout_width="0dp"
         android:layout_height="479dp"
-        android:id="@+id/editText"
-        android:layout_weight="0.90" />
+        android:id="@+id/message_pane"
+        android:layout_weight="0.90"
+        android:inputType="textCapSentences"/>
 
 </LinearLayout>

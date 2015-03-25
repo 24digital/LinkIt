@@ -3,4 +3,10 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="on">Compose</string>
+    <string name="off">Send Messages</string>
+    <string-array name="spinner_values">
+        <item>Compose</item>
+        <item>Send Message</item>
+    </string-array>
 </resources>

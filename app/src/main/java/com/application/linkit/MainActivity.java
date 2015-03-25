@@ -1,12 +1,14 @@
 package com.application.linkit;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Switch;
 import android.widget.ToggleButton;
+
+import actions.Compose;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -19,9 +21,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.font_page);
 
-        Switch mailSwitch = (Switch)findViewById(R.id.email_switch);
-        mailSwitch.setTextOff("Sent Message");
-        mailSwitch.setTextOn("Compose Message");
+
+
     }
 
 
@@ -52,9 +53,10 @@ public class MainActivity extends ActionBarActivity {
         boolean on = ((ToggleButton) view).isChecked();
         if(on)
         {
-
+            Intent intent = new Intent(this, Compose.class);
+            startActivity(intent);
         }else{
-
+                //View Sent Messages
         }
 
     }
