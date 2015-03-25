@@ -1,5 +1,7 @@
 package repository;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -14,13 +16,20 @@ import Entities.Contact;
 public class ContactsDAO implements ContactDAO {
     private EmailContactDTO contactDTO;
     private ContactDB contactDB;
-    public ContactsDAO(EmailContactDTO contactDTO) {
+
+    public ContactsDAO(EmailContactDTO contactDTO, Context context) {
         this.contactDTO = contactDTO;
         contactDTO = new EmailContactDTO();
-        contactDB   = new ContactDB();
+        contactDB = new ContactDB(context);
     }
 
-
+    /**
+     * Receive a specefic contact stored in the database
+     *
+     * @param firstName
+     * @param lastName
+     * @return
+     */
     @Override
     public Contact getContactDAO(String firstName, String lastName) {
         return null;
@@ -29,26 +38,28 @@ public class ContactsDAO implements ContactDAO {
     @Override
     public List<Contact> getAllContacts() {
         List<Contact> contactList = new ArrayList<>();
-   SQLiteDatabase database = contactDB.getReadableDatabase();
-  Cursor cursor = database.rawQuery("Select firstName, lastName from CONTACTS", null);
+        SQLiteDatabase database = contactDB.getReadableDatabase();
+        Cursor cursor = database.rawQuery("Select firstName, lastName from CONTACTS", null);
         cursor.moveToFirst();
         Contact contact = null;
-        while(!cursor.isAfterLast())
-        {
+        while (!cursor.isAfterLast()) {
             contact = new Contact();
             contact.setFirstName(cursor.getString(1));
             contact.setLastName(cursor.getString(2));
-           contactList.add(contact);
+            contactList.add(contact);
             cursor.moveToNext();
         }
         return contactList;
     }
 
-    public void setDATA()
-    {
-      Contact temp =  contactDTO.getContact();
+    public void setDATA() {
+        Contact temp = contactDTO.getContact();
+        ContentValues values = new ContentValues();
+        values.put(ContactContract.FIRST_NAME_COLUMN, temp.getFirstName());
+        values.put(ContactContract.LAST_NAME_COLUMN, temp.getLastName());
         SQLiteDatabase database = contactDB.getWritableDatabase();
-        database.insert()
+        database.insert(ContactContract.DATABASE_TABLE, null, values);
+        database.close();
     }
 
 }

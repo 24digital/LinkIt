@@ -8,8 +8,11 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by Marion on 3/25/2015.
  */
 public class ContactDB extends SQLiteOpenHelper {
-    public ContactDB(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+
+
+    public ContactDB(Context context) {
+        super(context, ContactContract.DATABASE_NAME, null, ContactContract.DATABASE_VERSION);
+
     }
 
     @Override
