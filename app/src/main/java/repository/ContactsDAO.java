@@ -32,7 +32,18 @@ public class ContactsDAO implements ContactDAO {
      */
     @Override
     public Contact getContactDAO(String firstName, String lastName) {
-        return null;
+
+        SQLiteDatabase database = contactDB.getReadableDatabase();
+    Cursor cursor =    database.query("(Select "+ContactContract.FIRST_NAME_COLUMN+" ,"+ContactContract.LAST_NAME_COLUMN+" "+"from"+" "+ContactContract.DATABASE_TABLE+
+        "where "+firstName+"="+ContactContract.DATABASE_TABLE+"."+ContactContract.FIRST_NAME_COLUMN +" )",null );
+       Contact contact =null;
+        if(cursor!= null)
+        {
+            contact = new Contact();
+            contact.setFirstName(cursor.getString(1));
+            contact.setLastName(cursor.getString(2));
+        }
+        return contact;
     }
 
     @Override

@@ -1,17 +1,26 @@
 package com.application.linkit;
 
+import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.ToggleButton;
 
 import actions.Compose;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ListActivity{
+ //Test Data
+    private static final String[] items={"marion","mik","chris"};
+
+
+
     /**
      * Beginning entry of class
      * @param savedInstanceState Bundle
@@ -21,7 +30,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.font_page);
 
-
+        setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,items));
 
     }
 
