@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import actions.Compose;
 
@@ -23,14 +25,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setView(R.layout.font_page);
-        dialog.setMessage("Welcome to LinkIt");
-        dialog.setTitle("LinkIt");
 
-
-        dialog.show();
-
+        TextView tv = (TextView) findViewById(R.id.application_name);
+        tv.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
 
         //  setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,items));
 
@@ -69,7 +66,13 @@ public class MainActivity extends Activity {
     }
 
     public void getContactInput(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setView(R.layout.font_page);
+        dialog.setMessage("Welcome to LinkIt");
+        dialog.setTitle("LinkIt");
+
+
+        dialog.show();
 
 
     }
