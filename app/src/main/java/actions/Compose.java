@@ -1,20 +1,22 @@
 package actions;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.widget.ArrayAdapter;
 
 import com.application.linkit.R;
 
 /**
  * Created by Marion on 3/25/2015.
  */
-public class Compose extends Activity {
+public class Compose extends ListActivity {
+    private static final String[] items = {"marion", "mik", "chris"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EditText editText = (EditText)findViewById(R.id.message_pane);
+        setContentView(R.layout.font_page);
 
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, items));
 
     }
 

@@ -1,24 +1,17 @@
 package com.application.linkit;
 
-import android.app.ListActivity;
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.ToggleButton;
 
 import actions.Compose;
 
 
-public class MainActivity extends ListActivity{
+public class MainActivity extends Activity {
  //Test Data
-    private static final String[] items={"marion","mik","chris"};
-
 
 
     /**
@@ -28,9 +21,9 @@ public class MainActivity extends ListActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.font_page);
+        setContentView(R.layout.activity_main);
 
-        setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,items));
+        //  setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,items));
 
     }
 
@@ -59,14 +52,10 @@ public class MainActivity extends ListActivity{
 
     public void startEmail(View view)
     {
-        boolean on = ((ToggleButton) view).isChecked();
-        if(on)
-        {
-            Intent intent = new Intent(this, Compose.class);
+
+
+        Intent intent = new Intent(this, Compose.class);
             startActivity(intent);
-        }else{
-                //View Sent Messages
-        }
 
     }
 }

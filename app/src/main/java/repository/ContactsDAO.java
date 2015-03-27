@@ -15,6 +15,7 @@ import Entities.Contact;
  */
 public class ContactsDAO implements ContactDAO {
     private EmailContactDTO contactDTO;
+
     private ContactDB contactDB;
 
     public ContactsDAO(EmailContactDTO contactDTO, Context context) {
@@ -34,11 +35,11 @@ public class ContactsDAO implements ContactDAO {
     public Contact getContactDAO(String firstName, String lastName) {
 
         SQLiteDatabase database = contactDB.getReadableDatabase();
-    Cursor cursor =    database.query("(Select "+ContactContract.FIRST_NAME_COLUMN+" ,"+ContactContract.LAST_NAME_COLUMN+" "+"from"+" "+ContactContract.DATABASE_TABLE+
-        "where "+firstName+"="+ContactContract.DATABASE_TABLE+"."+ContactContract.FIRST_NAME_COLUMN +" )",null );
-       Contact contact =null;
-        if(cursor!= null)
-        {
+        Cursor cursor = null;
+        //   Cursor cursor =    database.query("(Select "+ContactContract.FIRST_NAME_COLUMN+" ,"+ContactContract.LAST_NAME_COLUMN+" "+"from"+" "+ContactContract.DATABASE_TABLE+
+        //     "where "+firstName+"="+ContactContract.DATABASE_TABLE+"."+ContactContract.FIRST_NAME_COLUMN +" )",null,null );
+        Contact contact = null;
+        if (cursor != null) {
             contact = new Contact();
             contact.setFirstName(cursor.getString(1));
             contact.setLastName(cursor.getString(2));
