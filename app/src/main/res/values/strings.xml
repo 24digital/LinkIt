@@ -5,6 +5,9 @@
     <string name="action_settings">Settings</string>
     <string name="on">Compose</string>
     <string name="off">Send Messages</string>
+    <string name="dialog_fire_missiles">Test</string>
+    <string name="fire">e</string>
+    <string name="cancel">a</string>
     <string-array name="spinner_values">
         <item>Compose</item>
         <item>Send Message</item>

@@ -1,6 +1,7 @@
 package com.application.linkit;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,14 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setView(R.layout.font_page);
+        dialog.setMessage("Welcome to LinkIt");
+        dialog.setTitle("LinkIt");
+
+
+        dialog.show();
+
 
         //  setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,items));
 
@@ -56,6 +65,12 @@ public class MainActivity extends Activity {
 
         Intent intent = new Intent(this, Compose.class);
             startActivity(intent);
+
+    }
+
+    public void getContactInput(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
 
     }
 }
